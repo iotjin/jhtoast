@@ -11,7 +11,7 @@ jhtoast - Flutter toast package. 支持的效果：文字，图文，加载中,�
 
 <br>
 
-# jhtoast [![pub package](https://img.shields.io/pub/v/cool_ui.svg)](https://pub.flutter-io.cn/packages/jhtoast)
+# jhtoast [![pub package](https://img.shields.io/pub/v/jhtoast.svg)](https://pub.flutter-io.cn/packages/jhtoast)
 <br>
 
 pub地址：https://pub.flutter-io.cn/packages/jhtoast
