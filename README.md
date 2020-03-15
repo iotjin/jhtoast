@@ -1,6 +1,12 @@
-# jhtoast
+# jhtoast [![pub package](https://img.shields.io/pub/v/jhtoast.svg)](https://pub.flutter-io.cn/packages/jhtoast)
+<br>
 
 jhtoast - Flutter toast package. 支持的效果：文字，图文，加载中,水平垂直两种布局<br>
+
+<br>
+pub地址：https://pub.flutter-io.cn/packages/jhtoast
+
+
 
 <br> 
 <br> 
@@ -11,12 +17,7 @@ jhtoast - Flutter toast package. 支持的效果：文字，图文，加载中,�
 
 <br>
 
-# jhtoast [![pub package](https://img.shields.io/pub/v/jhtoast.svg)](https://pub.flutter-io.cn/packages/jhtoast)
-<br>
 
-pub地址：https://pub.flutter-io.cn/packages/jhtoast
-
-<br>
 
 ## 使用
 
