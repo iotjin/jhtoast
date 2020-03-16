@@ -13,7 +13,7 @@ pub地址：https://pub.flutter-io.cn/packages/jhtoast
 <br> 
 <br> 
 
-<img src="https://gitee.com/iotjh/Picture/raw/master/FlutterDemoScreenShot/Alert/JhToast.gif">
+<img src="https://gitee.com/iotjh/Picture/raw/master/FlutterDemoScreenShot/Alert/JhToast.gif" width="208" height="404">
 
 <br>
 
