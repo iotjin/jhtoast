@@ -1,5 +1,5 @@
 name: example
-description: jhtoast - Flutter toast package. 支持的效果：文字，图文，加载中,水平垂直两种布局
+description: jhtoast - Flutter toast package. supported effects： text, imagetext, loading, horizontal and vertical layout. Supports iOS and Android.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43

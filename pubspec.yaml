@@ -1,6 +1,6 @@
 name: jhtoast
-description: jhtoast - Flutter toast package. 支持的效果：文字，图文，加载中,水平垂直两种布局
-version: 0.0.5
+description: jhtoast - Flutter toast package. supported effects： text, imagetext, loading, horizontal and vertical layout. Supports iOS and Android.
+version: 0.1.0
 #author: iotjin <iotjinh@gmail.com>
 homepage: https://github.com/iotjin
 repository: https://github.com/iotjin/jhtoast

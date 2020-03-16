@@ -113,6 +113,7 @@ Future _showToast(
   var hide = _showJhToast(
       context: context,
       msg: msg,
+      isLoading: false,
       stopEvent: stopEvent,
       image: image,
       orientation: orientation

@@ -26,7 +26,7 @@ pub地址：https://pub.flutter-io.cn/packages/jhtoast
 
 ```
 dependencies:
-  jhtoast: ^0.0.5
+  jhtoast: ^0.1.0
 
 ```
 2. Install it
@@ -45,9 +45,9 @@ import 'package:jhtoast/jhtoast.dart';
 
 * 样式1 - 文字
 ```
- JhToast.showText(context, msg: "这是一条提示文字信息",
-//              closeTime: 10
-          );
+    JhToast.showText(context, msg: "这是一条提示文字信息",
+//      closeTime: 10
+      );
 
 ```
 
@@ -69,31 +69,31 @@ import 'package:jhtoast/jhtoast.dart';
 
 * 样式5 - 加载中
 ```
- var hide =  JhToast.showLoadingText(context,
-              msg:"正在加载中..."
-          );
-          Future.delayed(Duration(seconds: 2),(){
-            hide();
-          });
+    var hide =  JhToast.showLoadingText(context,
+          msg:"正在加载中..."
+      );
+      Future.delayed(Duration(seconds: 2),(){
+        hide();
+      });
 
 ```
 
 * 样式6 - 水平加载中
 ```
- var hide =  JhToast.showLoadingText_horizontal(context,
-              msg:"正在加载中..."
-          );
-          Future.delayed(Duration(seconds: 2),(){
-            hide();
-          });
+    var hide =  JhToast.showLoadingText_horizontal(context,
+          msg:"正在加载中..."
+      );
+      Future.delayed(Duration(seconds: 2),(){
+        hide();
+      });
           
 ```
 
 * 样式7 - 自定义图文
 ```
 
-  Widget img = Image.asset("assets/images/toast_error.png");
-  JhToast.showImageText(context,
+     Widget img = Image.asset("assets/images/toast_error.png");
+    JhToast.showImageText(context,
       msg: "自定义图文",
       image: img);
               
@@ -102,16 +102,16 @@ import 'package:jhtoast/jhtoast.dart';
 
 * 样式8 - 水平自定义图文
 ```
- Widget img = Image.asset("assets/images/toast_success.png");
-          JhToast.showImageText_horizontal(context,
-              msg: "水平自定义图文",
-              image: img);
+    Widget img = Image.asset("assets/images/toast_success.png");
+    JhToast.showImageText_horizontal(context,
+      msg: "水平自定义图文",
+      image: img);
 
 ```
 
 * 样式9 - iOS样式加载中
 ```
-  var hide =  JhToast.showLoadingText_iOS(context,
+       var hide =  JhToast.showLoadingText_iOS(context,
             msg:"正在加载中...",
           );
           Future.delayed(Duration(seconds: 2),(){
