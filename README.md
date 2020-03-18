@@ -26,7 +26,7 @@ pub地址：https://pub.flutter-io.cn/packages/jhtoast
 
 ```
 dependencies:
-  jhtoast: ^0.1.0
+  jhtoast: ^0.2.0
 
 ```
 2. Install it

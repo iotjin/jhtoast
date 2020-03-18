@@ -1,5 +1,8 @@
 # ChangeLog
 
+## [0.2.0] - 2020/03/18
+* TODO: change center style to center top
+
 ## [0.1.0] - 2020/03/16
 * TODO: remove warning
 

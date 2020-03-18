@@ -170,7 +170,8 @@ class JhToastWidget extends StatelessWidget {
         color: Colors.transparent,
         child:
         Align(
-            alignment: Alignment.center,
+//            alignment: Alignment.center,
+            alignment: Alignment(0.0, -0.2),//中间往上一点
             child:
             Container(
               margin: const EdgeInsets.all(50.0),
