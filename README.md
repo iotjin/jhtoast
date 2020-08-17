@@ -26,7 +26,7 @@ pub地址：https://pub.flutter-io.cn/packages/jhtoast
 
 ```
 dependencies:
-  jhtoast: ^0.2.0
+  jhtoast: ^0.3.0
 
 ```
 2. Install it
@@ -80,7 +80,7 @@ import 'package:jhtoast/jhtoast.dart';
 
 * 样式6 - 水平加载中
 ```
-    var hide =  JhToast.showLoadingText_horizontal(context,
+    var hide =  JhToast.showHorizontalLoadingText(context,
           msg:"正在加载中..."
       );
       Future.delayed(Duration(seconds: 2),(){
@@ -103,7 +103,7 @@ import 'package:jhtoast/jhtoast.dart';
 * 样式8 - 水平自定义图文
 ```
     Widget img = Image.asset("assets/images/toast_success.png");
-    JhToast.showImageText_horizontal(context,
+    JhToast.showHorizontalImageText(context,
       msg: "水平自定义图文",
       image: img);
 
@@ -111,7 +111,7 @@ import 'package:jhtoast/jhtoast.dart';
 
 * 样式9 - iOS样式加载中
 ```
-       var hide =  JhToast.showLoadingText_iOS(context,
+       var hide =  JhToast.showIOSLoadingText(context,
             msg:"正在加载中...",
           );
           Future.delayed(Duration(seconds: 2),(){
