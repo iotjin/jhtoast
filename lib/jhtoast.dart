@@ -62,7 +62,7 @@ class JhToast{
       }){
     return _showToast(context: context, msg: msg,image: image,stopEvent: true,closeTime:closeTime);
   }
-  static Future showImageText_horizontal(
+  static Future showHorizontalImageText(
       BuildContext context, {
         @required String msg,
         @required Widget image,
@@ -78,14 +78,14 @@ class JhToast{
       }){
     return _showJhToast(context: context, msg: msg, isLoading: true,stopEvent: true,orientation:_Orientation.vertical);
   }
-  static _HideCallback showLoadingText_horizontal(
+  static _HideCallback showHorizontalLoadingText(
       BuildContext context, {
         String msg = "加载中...",
       }){
     return _showJhToast(context: context, msg: msg, isLoading: true,stopEvent: true,orientation: _Orientation.horizontal);
   }
 
-  static _HideCallback showLoadingText_iOS(
+  static _HideCallback showIOSLoadingText(
       BuildContext context, {
         String msg = "加载中...",
       }){
