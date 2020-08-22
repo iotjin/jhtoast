@@ -1,5 +1,11 @@
 # ChangeLog
 
+## [0.5.0] - 2020/08/22
+* TODO: update back_button_interceptor
+
+## [0.3.0] - 2020/08/22
+* TODO: modify part naming
+
 ## [0.2.0] - 2020/03/18
 * TODO: change center style to center top
 

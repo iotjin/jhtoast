@@ -21,94 +21,144 @@ const double _imgWH = 30.0;
 const int _time = 1;
 enum _Orientation { horizontal, vertical }
 
-class JhToast{
-
+class JhToast {
+  //文字toast
   static Future showText(
-      BuildContext context, {
-        @required String msg,
-        int closeTime =_time,
-      }){
-    return _showToast(context: context, msg: msg,stopEvent: true,closeTime:closeTime);
+    BuildContext context, {
+    @required String msg,
+    int closeTime = _time,
+  }) {
+    return _showToast(
+        context: context, msg: msg, stopEvent: true, closeTime: closeTime);
   }
+
+  //成功toast
   static Future showSuccess(
-      BuildContext context, {
-        @required String msg,
-        int closeTime =_time,
-      }){
-    Widget img = Icon(Icons.check_circle_outline, size: _imgWH, color: _contentColor);
-    return _showToast(context: context, msg: msg,image: img ,stopEvent: true,closeTime:closeTime);
+    BuildContext context, {
+    @required String msg,
+    int closeTime = _time,
+  }) {
+    Widget img =
+        Icon(Icons.check_circle_outline, size: _imgWH, color: _contentColor);
+    return _showToast(
+        context: context,
+        msg: msg,
+        image: img,
+        stopEvent: true,
+        closeTime: closeTime);
   }
+
+  //失败toast
   static Future showError(
-      BuildContext context, {
-        @required String msg,
-        int closeTime =_time,
-      }){
+    BuildContext context, {
+    @required String msg,
+    int closeTime = _time,
+  }) {
     Widget img = Icon(Icons.highlight_off, size: _imgWH, color: _contentColor);
-    return _showToast(context: context, msg: msg,image: img,stopEvent: true,closeTime:closeTime);
+    return _showToast(
+        context: context,
+        msg: msg,
+        image: img,
+        stopEvent: true,
+        closeTime: closeTime);
   }
+
+  //警告toast
   static Future showInfo(
-      BuildContext context, {
-        @required String msg,
-        int closeTime =_time,
-      }){
+    BuildContext context, {
+    @required String msg,
+    int closeTime = _time,
+  }) {
     Widget img = Icon(Icons.info_outline, size: _imgWH, color: _contentColor);
-    return _showToast(context: context, msg: msg,image: img,stopEvent: true,closeTime:closeTime);
+    return _showToast(
+        context: context,
+        msg: msg,
+        image: img,
+        stopEvent: true,
+        closeTime: closeTime);
   }
+
+  //自定义图文toast
   static Future showImageText(
-      BuildContext context, {
-        @required String msg,
-        @required Widget image,
-        int closeTime =_time,
-      }){
-    return _showToast(context: context, msg: msg,image: image,stopEvent: true,closeTime:closeTime);
+    BuildContext context, {
+    @required String msg,
+    @required Widget image,
+    int closeTime = _time,
+  }) {
+    return _showToast(
+        context: context,
+        msg: msg,
+        image: image,
+        stopEvent: true,
+        closeTime: closeTime);
   }
+
+  //水平自定义图文toast
   static Future showHorizontalImageText(
-      BuildContext context, {
-        @required String msg,
-        @required Widget image,
-        int closeTime =_time,
-      }){
-    return _showToast(context: context, msg: msg,image: image,
-        stopEvent: true,orientation:_Orientation.horizontal,closeTime:closeTime);
+    BuildContext context, {
+    @required String msg,
+    @required Widget image,
+    int closeTime = _time,
+  }) {
+    return _showToast(
+        context: context,
+        msg: msg,
+        image: image,
+        stopEvent: true,
+        orientation: _Orientation.horizontal,
+        closeTime: closeTime);
   }
 
+  //加载中toast
   static _HideCallback showLoadingText(
-      BuildContext context, {
-        String msg = "加载中...",
-      }){
-    return _showJhToast(context: context, msg: msg, isLoading: true,stopEvent: true,orientation:_Orientation.vertical);
+    BuildContext context, {
+    String msg = "加载中...",
+  }) {
+    return _showJhToast(
+        context: context,
+        msg: msg,
+        isLoading: true,
+        stopEvent: true,
+        orientation: _Orientation.vertical);
   }
+
+  //水平加载中toast
   static _HideCallback showHorizontalLoadingText(
-      BuildContext context, {
-        String msg = "加载中...",
-      }){
-    return _showJhToast(context: context, msg: msg, isLoading: true,stopEvent: true,orientation: _Orientation.horizontal);
+    BuildContext context, {
+    String msg = "加载中...",
+  }) {
+    return _showJhToast(
+        context: context,
+        msg: msg,
+        isLoading: true,
+        stopEvent: true,
+        orientation: _Orientation.horizontal);
   }
 
+  //iOS加载中toast
   static _HideCallback showIOSLoadingText(
-      BuildContext context, {
-        String msg = "加载中...",
-      }){
-    Widget img = Image.asset("assets/images/loading.gif",width: _imgWH,package: "jhtoast");
-    return _showJhToast(context: context, msg: msg,image: img, isLoading: false,stopEvent: true);
-
+    BuildContext context, {
+    String msg = "加载中...",
+  }) {
+    Widget img = Image.asset("assets/images/loading.gif",
+        width: _imgWH, package: "jhtoast");
+    return _showJhToast(
+        context: context,
+        msg: msg,
+        image: img,
+        isLoading: false,
+        stopEvent: true);
   }
-
-
-
-
 }
 
-
-
+//_showToast
 Future _showToast(
     {@required BuildContext context,
-      String msg,
-      stopEvent = false,
-      Widget image,
-      int closeTime,
-      _Orientation orientation = _Orientation.vertical
-    }) {
+    String msg,
+    stopEvent = false,
+    Widget image,
+    int closeTime,
+    _Orientation orientation = _Orientation.vertical}) {
   msg = msg;
   var hide = _showJhToast(
       context: context,
@@ -116,23 +166,15 @@ Future _showToast(
       isLoading: false,
       stopEvent: stopEvent,
       image: image,
-      orientation: orientation
-  );
-  return Future.delayed(Duration(seconds:closeTime), () {
+      orientation: orientation);
+  return Future.delayed(Duration(seconds: closeTime), () {
     hide();
   });
 }
 
-
-
-
-
-
-
-
-
 typedef _HideCallback = Future Function();
 
+//JhToastWidget
 class JhToastWidget extends StatelessWidget {
   const JhToastWidget({
     Key key,
@@ -141,7 +183,6 @@ class JhToastWidget extends StatelessWidget {
     @required this.isLoading,
     @required this.stopEvent,
     @required this.orientation,
-
   }) : super(key: key);
 
   final bool stopEvent;
@@ -152,28 +193,26 @@ class JhToastWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     Widget topW;
     bool isHidden;
-    if(this.isLoading ==true){
+    if (this.isLoading == true) {
       isHidden = false;
-      topW = CircularProgressIndicator(strokeWidth: 3.0,
-        valueColor:AlwaysStoppedAnimation<Color>(_contentColor),);
-    }else{
-      isHidden = image==null?true:false;
+      topW = CircularProgressIndicator(
+        strokeWidth: 3.0,
+        valueColor: AlwaysStoppedAnimation<Color>(_contentColor),
+      );
+    } else {
+      isHidden = image == null ? true : false;
       topW = image;
     }
 
-    var widget =
-    Material(
+    var widget = Material(
 //        color: Colors.yellow,
         color: Colors.transparent,
-        child:
-        Align(
+        child: Align(
 //            alignment: Alignment.center,
-            alignment: Alignment(0.0, -0.2),//中间往上一点
-            child:
-            Container(
+            alignment: Alignment(0.0, -0.2), //中间往上一点
+            child: Container(
               margin: const EdgeInsets.all(50.0),
               padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
               decoration: BoxDecoration(
@@ -181,52 +220,51 @@ class JhToastWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(_radius),
               ),
               child: ClipRect(
-                child:
-                orientation == _Orientation.vertical
-                    ?
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Offstage(
-                      offstage: isHidden,
-                      child: Container(
-                        width: 40.0,
-                        height: 40.0,
-                        margin: EdgeInsets.only(bottom: 8.0),
-                        padding: EdgeInsets.all(4.0),
+                child: orientation == _Orientation.vertical
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Offstage(
+                            offstage: isHidden,
+                            child: Container(
+                              width: 40.0,
+                              height: 40.0,
+                              margin: EdgeInsets.only(bottom: 8.0),
+                              padding: EdgeInsets.all(4.0),
 //                            child: Icon(Icons.check_circle_outline, size: 30, color: Colors.white,),
-                        child: topW,
-                      ),
-                    ),
-                    Text(msg,
-                        style: TextStyle(fontSize: _textFontSize,color: _contentColor), textAlign: TextAlign.center),
-                  ],
-                )
+                              child: topW,
+                            ),
+                          ),
+                          Text(msg,
+                              style: TextStyle(
+                                  fontSize: _textFontSize,
+                                  color: _contentColor),
+                              textAlign: TextAlign.center),
+                        ],
+                      )
                     : Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Offstage(
-                      offstage: isHidden,
-                      child:Container(
-                        width: 36.0,
-                        height: 36.0,
-                        margin: EdgeInsets.only(right: 8.0),
-                        padding: EdgeInsets.all(4.0),
-                        child: topW,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Offstage(
+                            offstage: isHidden,
+                            child: Container(
+                              width: 36.0,
+                              height: 36.0,
+                              margin: EdgeInsets.only(right: 8.0),
+                              padding: EdgeInsets.all(4.0),
+                              child: topW,
+                            ),
+                          ),
+                          Text(msg,
+                              style: TextStyle(
+                                  fontSize: _textFontSize,
+                                  color: _contentColor),
+                              textAlign: TextAlign.center),
+                        ],
                       ),
-                    ),
-                    Text(msg,
-                        style: TextStyle(fontSize: _textFontSize,color: _contentColor), textAlign: TextAlign.center),
-                  ],
-                ),
-
-
               ),
-            )
-        )
-
-    );
+            )));
     return IgnorePointer(
       ignoring: !stopEvent,
       child: widget,
@@ -235,20 +273,20 @@ class JhToastWidget extends StatelessWidget {
 }
 
 int backButtonIndex = 2;
-_HideCallback _showJhToast(
-    {@required BuildContext context,
-      @required String msg,
-      Widget image,
-      @required bool isLoading,
-      bool stopEvent = false,
-      _Orientation orientation = _Orientation.vertical,
-    }) {
-
+//_showJhToast
+_HideCallback _showJhToast({
+  @required BuildContext context,
+  @required String msg,
+  Widget image,
+  @required bool isLoading,
+  bool stopEvent = false,
+  _Orientation orientation = _Orientation.vertical,
+}) {
   Completer<VoidCallback> result = Completer<VoidCallback>();
 
   var backButtonName = 'JhToast$backButtonIndex';
-  BackButtonInterceptor.add((stopDefaultButtonEvent){
-    result.future.then((hide){
+  BackButtonInterceptor.add((bool stopDefaultButtonEvent, RouteInfo info) {
+    result.future.then((hide) {
       hide();
     });
     return true;
@@ -258,21 +296,21 @@ _HideCallback _showJhToast(
   var overlay = OverlayEntry(
       maintainState: true,
       builder: (_) => WillPopScope(
-        onWillPop: () async {
-          var hide = await result.future;
-          hide();
-          return false;
-        },
-        child: JhToastWidget(
-          image: image,
-          msg: msg,
-          stopEvent: stopEvent,
-          isLoading: isLoading,
-          orientation: orientation,
-        ),
-      ));
-  result.complete((){
-    if(overlay == null){
+            onWillPop: () async {
+              var hide = await result.future;
+              hide();
+              return false;
+            },
+            child: JhToastWidget(
+              image: image,
+              msg: msg,
+              stopEvent: stopEvent,
+              isLoading: isLoading,
+              orientation: orientation,
+            ),
+          ));
+  result.complete(() {
+    if (overlay == null) {
       return;
     }
     overlay.remove();
