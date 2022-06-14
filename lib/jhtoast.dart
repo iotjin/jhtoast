@@ -1,5 +1,3 @@
-library jhtoast;
-
 /**
  *  jhToast.dart
  *
@@ -8,9 +6,10 @@ library jhtoast;
  *  github: https://github.com/iotjin
  */
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+library jhtoast;
+
 import 'dart:async';
+import 'package:flutter/material.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 
 const Color _bgColor = Colors.black87;
@@ -19,23 +18,24 @@ const double _textFontSize = 15.0;
 const double _radius = 3.0;
 const double _imgWH = 30.0;
 const int _time = 1;
+
 enum _Orientation { horizontal, vertical }
 
 class JhToast {
-  //文字toast
+  /// 文字toast
   static Future showText(
     BuildContext context, {
-    @required String msg,
+    required String msg,
     int closeTime = _time,
   }) {
     return _showToast(
         context: context, msg: msg, stopEvent: true, closeTime: closeTime);
   }
 
-  //成功toast
+  /// 成功toast
   static Future showSuccess(
     BuildContext context, {
-    @required String msg,
+    required String msg,
     int closeTime = _time,
   }) {
     Widget img =
@@ -48,10 +48,10 @@ class JhToast {
         closeTime: closeTime);
   }
 
-  //失败toast
+  /// 失败toast
   static Future showError(
     BuildContext context, {
-    @required String msg,
+    required String msg,
     int closeTime = _time,
   }) {
     Widget img = Icon(Icons.highlight_off, size: _imgWH, color: _contentColor);
@@ -63,10 +63,10 @@ class JhToast {
         closeTime: closeTime);
   }
 
-  //警告toast
+  /// 警告toast
   static Future showInfo(
     BuildContext context, {
-    @required String msg,
+    required String msg,
     int closeTime = _time,
   }) {
     Widget img = Icon(Icons.info_outline, size: _imgWH, color: _contentColor);
@@ -78,11 +78,11 @@ class JhToast {
         closeTime: closeTime);
   }
 
-  //自定义图文toast
+  /// 自定义图文toast
   static Future showImageText(
     BuildContext context, {
-    @required String msg,
-    @required Widget image,
+    required String msg,
+    required Widget image,
     int closeTime = _time,
   }) {
     return _showToast(
@@ -93,11 +93,11 @@ class JhToast {
         closeTime: closeTime);
   }
 
-  //水平自定义图文toast
+  /// 水平自定义图文toast
   static Future showHorizontalImageText(
     BuildContext context, {
-    @required String msg,
-    @required Widget image,
+    required String msg,
+    required Widget image,
     int closeTime = _time,
   }) {
     return _showToast(
@@ -109,7 +109,7 @@ class JhToast {
         closeTime: closeTime);
   }
 
-  //加载中toast
+  /// 加载中toast
   static _HideCallback showLoadingText(
     BuildContext context, {
     String msg = "加载中...",
@@ -122,7 +122,7 @@ class JhToast {
         orientation: _Orientation.vertical);
   }
 
-  //水平加载中toast
+  /// 水平加载中toast
   static _HideCallback showHorizontalLoadingText(
     BuildContext context, {
     String msg = "加载中...",
@@ -135,7 +135,7 @@ class JhToast {
         orientation: _Orientation.horizontal);
   }
 
-  //iOS加载中toast
+  /// iOS加载中toast
   static _HideCallback showIOSLoadingText(
     BuildContext context, {
     String msg = "加载中...",
@@ -151,13 +151,13 @@ class JhToast {
   }
 }
 
-//_showToast
+/// _showToast
 Future _showToast(
-    {@required BuildContext context,
-    String msg,
+    {required BuildContext context,
+    String msg: "",
     stopEvent = false,
-    Widget image,
-    int closeTime,
+    Widget? image,
+    int closeTime: _time,
     _Orientation orientation = _Orientation.vertical}) {
   msg = msg;
   var hide = _showJhToast(
@@ -174,26 +174,26 @@ Future _showToast(
 
 typedef _HideCallback = Future Function();
 
-//JhToastWidget
+/// JhToastWidget
 class JhToastWidget extends StatelessWidget {
   const JhToastWidget({
-    Key key,
-    @required this.msg,
+    Key? key,
+    required this.msg,
     this.image,
-    @required this.isLoading,
-    @required this.stopEvent,
-    @required this.orientation,
+    required this.isLoading,
+    required this.stopEvent,
+    required this.orientation,
   }) : super(key: key);
 
   final bool stopEvent;
-  final Widget image;
+  final Widget? image;
   final String msg;
   final bool isLoading;
   final _Orientation orientation;
 
   @override
   Widget build(BuildContext context) {
-    Widget topW;
+    Widget? topW;
     bool isHidden;
     if (this.isLoading == true) {
       isHidden = false;
@@ -207,11 +207,10 @@ class JhToastWidget extends StatelessWidget {
     }
 
     var widget = Material(
-//        color: Colors.yellow,
         color: Colors.transparent,
         child: Align(
 //            alignment: Alignment.center,
-            alignment: Alignment(0.0, -0.2), //中间往上一点
+            alignment: Alignment(0.0, -0.2), // 中间往上一点
             child: Container(
               margin: const EdgeInsets.all(50.0),
               padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
@@ -273,12 +272,13 @@ class JhToastWidget extends StatelessWidget {
 }
 
 int backButtonIndex = 2;
-//_showJhToast
+
+/// _showJhToast
 _HideCallback _showJhToast({
-  @required BuildContext context,
-  @required String msg,
-  Widget image,
-  @required bool isLoading,
+  required BuildContext context,
+  required String msg,
+  Widget? image,
+  required bool isLoading,
   bool stopEvent = false,
   _Orientation orientation = _Orientation.vertical,
 }) {
@@ -293,7 +293,7 @@ _HideCallback _showJhToast({
   }, zIndex: backButtonIndex, name: backButtonName);
   backButtonIndex++;
 
-  var overlay = OverlayEntry(
+  OverlayEntry? overlay = OverlayEntry(
       maintainState: true,
       builder: (_) => WillPopScope(
             onWillPop: () async {
@@ -313,11 +313,11 @@ _HideCallback _showJhToast({
     if (overlay == null) {
       return;
     }
-    overlay.remove();
+    overlay!.remove();
     overlay = null;
     BackButtonInterceptor.removeByName(backButtonName);
   });
-  Overlay.of(context).insert(overlay);
+  Overlay.of(context)?.insert(overlay!);
   return () async {
     var hide = await result.future;
     hide();

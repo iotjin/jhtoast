@@ -1,18 +1,18 @@
 name: jhtoast
 description: jhtoast - Flutter toast package. supported effects： text, imagetext, loading, horizontal and vertical layout. Supports iOS and Android.
-version: 0.5.0
+version: 1.1.0
 #author: iotjin <iotjinh@gmail.com>
 homepage: https://github.com/iotjin
 repository: https://github.com/iotjin/jhtoast
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  back_button_interceptor: ^4.3.0
+  back_button_interceptor: ^5.0.0
 
 dev_dependencies:
   flutter_test:
