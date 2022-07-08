@@ -1,10 +1,13 @@
 # ChangeLog
 
+## [1.2.0] - 2022/07/08
+* TODO: update back_button_interceptor 6.0.0
+
 ## [1.1.0] - 2022/06/14
 * TODO: Nullsafety.
 
 ## [0.5.0] - 2020/08/22
-* TODO: update back_button_interceptor
+* TODO: update back_button_interceptor 5.0.0
 
 ## [0.3.0] - 2020/08/22
 * TODO: modify part naming

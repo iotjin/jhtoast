@@ -1,10 +1,8 @@
-/**
- *  jhToast.dart
- *
- *  Created by iotjin on 2020/03/06.
- *  description: 支持的效果：文字，图文，加载中,水平垂直两种布局
- *  github: https://github.com/iotjin
- */
+///  jhToast.dart
+///
+///  Created by iotjin on 2020/03/06.
+///  description: 支持的效果：文字，图文，加载中,水平垂直两种布局
+///  github: https://github.com/iotjin
 
 library jhtoast;
 
@@ -28,8 +26,7 @@ class JhToast {
     required String msg,
     int closeTime = _time,
   }) {
-    return _showToast(
-        context: context, msg: msg, stopEvent: true, closeTime: closeTime);
+    return _showToast(context: context, msg: msg, stopEvent: true, closeTime: closeTime);
   }
 
   /// 成功toast
@@ -38,14 +35,8 @@ class JhToast {
     required String msg,
     int closeTime = _time,
   }) {
-    Widget img =
-        Icon(Icons.check_circle_outline, size: _imgWH, color: _contentColor);
-    return _showToast(
-        context: context,
-        msg: msg,
-        image: img,
-        stopEvent: true,
-        closeTime: closeTime);
+    Widget img = Icon(Icons.check_circle_outline, size: _imgWH, color: _contentColor);
+    return _showToast(context: context, msg: msg, image: img, stopEvent: true, closeTime: closeTime);
   }
 
   /// 失败toast
@@ -55,12 +46,7 @@ class JhToast {
     int closeTime = _time,
   }) {
     Widget img = Icon(Icons.highlight_off, size: _imgWH, color: _contentColor);
-    return _showToast(
-        context: context,
-        msg: msg,
-        image: img,
-        stopEvent: true,
-        closeTime: closeTime);
+    return _showToast(context: context, msg: msg, image: img, stopEvent: true, closeTime: closeTime);
   }
 
   /// 警告toast
@@ -70,12 +56,7 @@ class JhToast {
     int closeTime = _time,
   }) {
     Widget img = Icon(Icons.info_outline, size: _imgWH, color: _contentColor);
-    return _showToast(
-        context: context,
-        msg: msg,
-        image: img,
-        stopEvent: true,
-        closeTime: closeTime);
+    return _showToast(context: context, msg: msg, image: img, stopEvent: true, closeTime: closeTime);
   }
 
   /// 自定义图文toast
@@ -85,12 +66,7 @@ class JhToast {
     required Widget image,
     int closeTime = _time,
   }) {
-    return _showToast(
-        context: context,
-        msg: msg,
-        image: image,
-        stopEvent: true,
-        closeTime: closeTime);
+    return _showToast(context: context, msg: msg, image: image, stopEvent: true, closeTime: closeTime);
   }
 
   /// 水平自定义图文toast
@@ -115,11 +91,7 @@ class JhToast {
     String msg = "加载中...",
   }) {
     return _showJhToast(
-        context: context,
-        msg: msg,
-        isLoading: true,
-        stopEvent: true,
-        orientation: _Orientation.vertical);
+        context: context, msg: msg, isLoading: true, stopEvent: true, orientation: _Orientation.vertical);
   }
 
   /// 水平加载中toast
@@ -128,11 +100,7 @@ class JhToast {
     String msg = "加载中...",
   }) {
     return _showJhToast(
-        context: context,
-        msg: msg,
-        isLoading: true,
-        stopEvent: true,
-        orientation: _Orientation.horizontal);
+        context: context, msg: msg, isLoading: true, stopEvent: true, orientation: _Orientation.horizontal);
   }
 
   /// iOS加载中toast
@@ -140,14 +108,8 @@ class JhToast {
     BuildContext context, {
     String msg = "加载中...",
   }) {
-    Widget img = Image.asset("assets/images/loading.gif",
-        width: _imgWH, package: "jhtoast");
-    return _showJhToast(
-        context: context,
-        msg: msg,
-        image: img,
-        isLoading: false,
-        stopEvent: true);
+    Widget img = Image.asset("assets/images/loading.gif", width: _imgWH, package: "jhtoast");
+    return _showJhToast(context: context, msg: msg, image: img, isLoading: false, stopEvent: true);
   }
 }
 
@@ -161,12 +123,7 @@ Future _showToast(
     _Orientation orientation = _Orientation.vertical}) {
   msg = msg;
   var hide = _showJhToast(
-      context: context,
-      msg: msg,
-      isLoading: false,
-      stopEvent: stopEvent,
-      image: image,
-      orientation: orientation);
+      context: context, msg: msg, isLoading: false, stopEvent: stopEvent, image: image, orientation: orientation);
   return Future.delayed(Duration(seconds: closeTime), () {
     hide();
   });
@@ -235,9 +192,7 @@ class JhToastWidget extends StatelessWidget {
                             ),
                           ),
                           Text(msg,
-                              style: TextStyle(
-                                  fontSize: _textFontSize,
-                                  color: _contentColor),
+                              style: TextStyle(fontSize: _textFontSize, color: _contentColor),
                               textAlign: TextAlign.center),
                         ],
                       )
@@ -256,9 +211,7 @@ class JhToastWidget extends StatelessWidget {
                             ),
                           ),
                           Text(msg,
-                              style: TextStyle(
-                                  fontSize: _textFontSize,
-                                  color: _contentColor),
+                              style: TextStyle(fontSize: _textFontSize, color: _contentColor),
                               textAlign: TextAlign.center),
                         ],
                       ),
